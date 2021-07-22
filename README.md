@@ -1,5 +1,5 @@
 # DesignPatterns
-自学设计模式
+设计模式原则
 
 设计原则 | 一句话归纳 | 目的
 ---|---|---
@@ -11,112 +11,10 @@
 里氏替换原则|不要破坏继承体系，子类重写方法功能发生改变，不应该影响父类方法的含义|防止继承泛滥
 合成复用原则|尽量使用组合或者聚合关系实现代码复用，少使用继承|降低代码耦合
 	
-### 创建型模式
-1. 单例模式：某个类只有一个实例
-2. 原型模式：将一个对象作为原型，进行复制而克隆
-3. 工厂方法(类创建型)：定义一个创建产品的接口
-4. 抽象工厂：定义一个创建产品族的接口
-5. 建造者：将一个复杂对象分解为多个相对简单的部分。
 
-#### 单列模式
-##### 特点：
-- 只有一个实例
-- 类自行创建
-- 对外提供一个全局的访问点
-
-##### 优点：
-- 一个实例，内存开销小
-- 避免资源的多重占用
-- 全局访问点，可优化和共享资源的访问
-
-##### 缺点
-- 没有接口，扩展困难，违背开闭原则
-- 在并发过程中，不利于调试
-
-##### 应用场景
-1. 频繁创建，频繁销毁，如线程池
-2. 只需要创建一个对象的时
-3. 创建实例时，耗时长，占用多，经常使用
-4. 频繁访问数据库
-5. 对象需要被共享
-
-###### UML
-
-###### 实现
-1. 懒汉
-``` java
-public class LazySingleton{
-    private static volatile LazySigleton instance = null;
-    
-    private LazySingleton(){
-    }
-    
-    // 同步方法
-    public static synchronized LazySingleton getInstance(){
-        if(instance == null){
-            instance = new LaySingleton();
-        }
-        return instance;
-    }
-    
-    // 同步块
-    public static synchronized LazySingleton getInstance2(){
-        synchronized(LazySingleton.class){
-            if(instance == null){
-                instance = new LaySingleton();
-            }
-        }
-        return instance;
-    }
-    
-    // 内部类
-    private static class Holder{
-        private static LazySingleton instance1 = new LazySingleton();
-    }
-    
-    public static LazySingleton getInstance3(){
-        return Holder.instance1;
-    }
-    
-    // 双重检测
-    public static LazySingleton getInstance4(){
-        if(instance == null){
-            synchronized(LazySingleton.class){
-                if(instance == null){
-                    instance == new LazySingleton();
-                }
-            }
-        }
-    }
-}
-```
-2.饿汉
-```java
-public class HungrySingleton{
-    private static final HungrySingleton instance = new HungrySingleton();
-    
-    private HungrySingleton(){
-    }
-    
-    public static HungrySingleton getInstance(){
-        return instance;
-    }
-}
-```
-
-#### 原型模式
-    实现Cloneable接口，编写clone()方法。
-```java
-public class SunWukong implements Cloneable{
-    // 省略代码...
-    public Object clone() throws CloneNotSupportedException {
-        //do-something...
-        return (SunWukong) super.clone();
-    }
-}
-```
-
-
-
-
-
+### 包简介
+包名| 模式类型
+---|---
+factory | 工厂模式
+builder|  建造者
+demo   |所有相关实例

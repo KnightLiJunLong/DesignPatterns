@@ -1,5 +1,8 @@
 package im.knight.dp.demo.factory.abs;
 
+import im.knight.dp.demo.factory.common.Animal;
+import im.knight.dp.demo.factory.common.Plant;
+
 /**
  * 我们的具体调用依旧可以以配置的形式来确定，如果要通过反射那就需要完整的路径，
  * 如果是我们自定义的，那见机行事
@@ -10,7 +13,10 @@ package im.knight.dp.demo.factory.abs;
 public class Client {
 
     public static void main(String[] args) {
-        Package package1 = Farm.class.getPackage();
-        System.out.println(package1);
+        Farm farm = new ChengDuFarm();
+        Animal animal = farm.getAnimal();
+        Plant plant = farm.getPlant();
+        animal.show();
+        plant.show();
     }
 }
