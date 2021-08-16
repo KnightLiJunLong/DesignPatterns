@@ -4,7 +4,7 @@ import im.knight.dp.adapter.common.Adapter;
 import im.knight.dp.adapter.common.Target;
 
 /**
- * @description:
+ * @description: 中转站
  * @author: lijunlong
  * @date: 2021/8/12 9:26
  */

@@ -1,7 +1,7 @@
 package im.knight.dp.adapter.common;
 
 /**
- * @description:
+ * @description: 适配器
  * @author: lijunlong
  * @date: 2021/8/12 9:20
  */
